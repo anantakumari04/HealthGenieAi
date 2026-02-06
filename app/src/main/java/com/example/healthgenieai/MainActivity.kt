@@ -13,5 +13,6 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         Toast.makeText(this,"Hello World",Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Hi Ananta", Toast.LENGTH_LONG).show()
     }
 }
