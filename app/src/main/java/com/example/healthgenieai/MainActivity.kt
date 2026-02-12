@@ -4,8 +4,10 @@ package com.example.healthgenieai
 
 
 
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.example.healthgenieai.ui.ProfileFragment
 import com.example.healthgenieai.ui.chat.ChatFragment
@@ -13,6 +15,7 @@ import com.example.healthgenieai.ui.diet.DietFragment
 import com.example.healthgenieai.ui.fitness.FitnessFragment
 import com.example.healthgenieai.ui.home.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
 
-        // Default fragment
+
         loadFragment(HomeFragment())
 
         bottomNav.setOnItemSelectedListener { item ->
@@ -36,6 +39,17 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.ACTIVITY_RECOGNITION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.ACTIVITY_RECOGNITION),
+                1001
+            )
+        }
     }
 
     private fun loadFragment(fragment: Fragment) {
@@ -43,4 +57,7 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.frame_container, fragment)
             .commit()
     }
+
+
+
 }
