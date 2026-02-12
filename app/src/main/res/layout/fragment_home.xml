@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F6FF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- GREETING -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Good Morning, Alex 👋"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#1F2937"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Here’s your health summary."
+            android:textSize="14sp"
+            android:textColor="#6B7280"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- STATS GRID -->
+        <GridLayout
+            android:columnCount="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- STEPS CARD -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:background="@drawable/card_blue"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="6dp"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@android:drawable/ic_menu_compass"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Steps"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/tvSteps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8,450"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Goal: 10,000"
+                    android:textColor="#E5E7EB"/>
+            </LinearLayout>
+
+            <!-- HEART RATE CARD -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:background="@drawable/card_red"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="6dp"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@android:drawable/ic_menu_camera"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Heart Rate"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="78 bpm"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Normal"
+                    android:textColor="#E5E7EB"/>
+            </LinearLayout>
+
+            <!-- SLEEP CARD -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:background="@drawable/card_purple"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="6dp"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@android:drawable/ic_menu_day"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sleep"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7h 30m"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Good Sleep"
+                    android:textColor="#E5E7EB"/>
+            </LinearLayout>
+
+            <!-- CALORIES CARD -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:background="@drawable/card_orange"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="6dp"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@android:drawable/ic_menu_manage"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calories"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="520 kcal"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Burned"
+                    android:textColor="#E5E7EB"/>
+            </LinearLayout>
+
+        </GridLayout>
+
+        <!-- QUICK ACTIONS ROW -->
+        <!-- QUICK ACTION ICON CARDS (EXACT LIKE IMAGE) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:layout_marginTop="12dp">
+
+            <!-- AI CHATBOT CARD -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:background="@drawable/card_light_blue"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="6dp"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@android:drawable/ic_dialog_info"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AI Chatbot"
+                    android:textStyle="bold"
+                    android:textSize="13sp"
+                    android:layout_marginTop="6dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ask AI"
+                    android:textSize="12sp"
+                    android:textColor="#555555"/>
+            </LinearLayout>
+
+            <!-- DIET PLAN CARD -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:background="@drawable/card_light_green"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="6dp"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@android:drawable/ic_menu_gallery"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Diet Plan"
+                    android:textStyle="bold"
+                    android:textSize="13sp"
+                    android:layout_marginTop="6dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Meal Plan"
+                    android:textSize="12sp"
+                    android:textColor="#555555"/>
+            </LinearLayout>
+
+            <!-- WORKOUT CARD -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:background="@drawable/card_light_cyan"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="6dp"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@android:drawable/ic_menu_compass"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Workout"
+                    android:textStyle="bold"
+                    android:textSize="13sp"
+                    android:layout_marginTop="6dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Exercise"
+                    android:textSize="12sp"
+                    android:textColor="#555555"/>
+            </LinearLayout>
+
+            <!-- REMINDERS CARD -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:background="@drawable/card_light_yellow"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="6dp"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@android:drawable/ic_menu_my_calendar"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reminders"
+                    android:textStyle="bold"
+                    android:textSize="13sp"
+                    android:layout_marginTop="6dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Medicines"
+                    android:textSize="12sp"
+                    android:textColor="#555555"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- WEEKLY REPORT CARD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_white"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weekly Health Report"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View your progress"
+                android:textSize="14sp"
+                android:textColor="#6B7280"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View Report"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <!-- FIND HOSPITALS CARD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_white"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Find Nearby Hospitals"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Emergency assistance"
+                android:textSize="14sp"
+                android:textColor="#6B7280"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Find Now"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

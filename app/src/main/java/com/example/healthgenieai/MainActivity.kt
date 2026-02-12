@@ -1,18 +1,63 @@
 package com.example.healthgenieai
 
+
+
+
+
+import android.content.pm.PackageManager
 import android.os.Bundle
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
+import com.example.healthgenieai.ui.ProfileFragment
+import com.example.healthgenieai.ui.chat.ChatFragment
+import com.example.healthgenieai.ui.diet.DietFragment
+import com.example.healthgenieai.ui.fitness.FitnessFragment
+import com.example.healthgenieai.ui.home.HomeFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
+
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        Toast.makeText(this,"Hello World",Toast.LENGTH_LONG).show()
-        Toast.makeText(this, "Hi Ananta", Toast.LENGTH_LONG).show()
+
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
+
+
+        loadFragment(HomeFragment())
+
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> loadFragment(HomeFragment())
+                R.id.nav_chat -> loadFragment(ChatFragment())
+                R.id.nav_fitness -> loadFragment(FitnessFragment())
+                R.id.nav_diet -> loadFragment(DietFragment())
+                R.id.nav_profile -> loadFragment(ProfileFragment())
+            }
+            true
+        }
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.ACTIVITY_RECOGNITION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.ACTIVITY_RECOGNITION),
+                1001
+            )
+        }
     }
+
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_container, fragment)
+            .commit()
+    }
+
+
+
 }
