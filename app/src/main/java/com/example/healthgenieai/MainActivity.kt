@@ -2,14 +2,13 @@ package com.example.healthgenieai
 
 
 
-
-
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.example.healthgenieai.ui.ProfileFragment
+
 import com.example.healthgenieai.ui.chat.ChatFragment
 import com.example.healthgenieai.ui.diet.DietFragment
 import com.example.healthgenieai.ui.fitness.FitnessFragment
