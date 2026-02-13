@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "222093357831",
+    "firebase_url": "https://healthgenieai-f546c-default-rtdb.firebaseio.com",
+    "project_id": "healthgenieai-f546c",
+    "storage_bucket": "healthgenieai-f546c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222093357831:android:4fee2ed138c05758eccba2",
+        "android_client_info": {
+          "package_name": "com.example.healthgenieai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDF7G_iC3PNKhY6qN4DXpNUH9z2SQD8ZZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
