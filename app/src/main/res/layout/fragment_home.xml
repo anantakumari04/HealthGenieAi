@@ -74,11 +74,12 @@
             </LinearLayout>
 
             <!-- HEART RATE CARD -->
+            <!-- WATER INTAKE CARD -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="120dp"
                 android:layout_columnWeight="1"
-                android:background="@drawable/card_red"
+                android:background="@drawable/card_light_blue"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_margin="6dp"
@@ -87,28 +88,33 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@android:drawable/ic_menu_camera"/>
+                    android:src="@android:drawable/ic_menu_upload" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Heart Rate"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp"/>
+                    android:text="Water Intake"
+                    android:textColor="#1F2937"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
 
                 <TextView
+                    android:id="@+id/tvWater"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="78 bpm"
-                    android:textSize="22sp"
+                    android:text="0 / 8 glasses"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="#FFFFFF"/>
+                    android:clickable="true"
+                    android:focusable="true"/>
 
-                <TextView
+                <Button
+                    android:id="@+id/btnAddWater"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Normal"
-                    android:textColor="#E5E7EB"/>
+                    android:text="+ Drink"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"/>
             </LinearLayout>
 
             <!-- SLEEP CARD -->
@@ -176,6 +182,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="520 kcal"
+                    android:id="@+id/tvCalories"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"/>
@@ -200,12 +207,15 @@
 
             <!-- AI CHATBOT CARD -->
             <LinearLayout
+                android:id="@+id/cardAiChat"
                 android:layout_width="0dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
                 android:background="@drawable/card_light_blue"
                 android:orientation="vertical"
                 android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_margin="6dp"
                 android:padding="8dp">
 
@@ -296,6 +306,7 @@
 
             <!-- REMINDERS CARD -->
             <LinearLayout
+                android:id="@+id/cardReminder"
                 android:layout_width="0dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -328,35 +339,32 @@
 
         </LinearLayout>
 
-        <!-- WEEKLY REPORT CARD -->
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/card_white"
             android:orientation="vertical"
             android:padding="12dp"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Weekly Health Report"
+                android:text="View Weekly reports"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="View your progress"
-                android:textSize="14sp"
-                android:textColor="#6B7280"/>
 
             <Button
+                android:id="@+id/btnShowWeeklyReport"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View Report"
+                android:text="Show"
                 android:layout_marginTop="8dp"/>
         </LinearLayout>
+
 
         <!-- FIND HOSPITALS CARD -->
         <LinearLayout

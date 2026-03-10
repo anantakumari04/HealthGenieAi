@@ -1,0 +1,35 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#F2F6FF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="📊 Weekly Health Report"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/stepsChart"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"/>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/caloriesChart"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"/>
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/waterChart"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"/>
+    </LinearLayout>
+</ScrollView>
