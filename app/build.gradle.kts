@@ -10,6 +10,7 @@ if (localPropertiesFile.exists()) {
     localProperties.load(localPropertiesFile.inputStream())
 }
 val geminiApiKey = localProperties.getProperty("GEMINI_API_KEY") ?: ""
+val mapsApiKey = localProperties.getProperty("MAPS_API_KEY") ?: ""
 android {
     namespace = "com.example.healthgenieai"
     compileSdk {
@@ -26,7 +27,15 @@ android {
             "String",
             "GEMINI_API_KEY",
             "\"$geminiApiKey\""
+
         )
+        buildConfigField(
+            "String",
+            "MAPS_API_KEY",
+            "\"$mapsApiKey\""
+        )
+
+        manifestPlaceholders["MAPS_API_KEY"] = mapsApiKey
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -41,6 +50,11 @@ android {
                 "GEMINI_API_KEY",
                 "\"$geminiApiKey\""
             )
+            buildConfigField(
+                "String",
+                "MAPS_API_KEY",
+                "\"$mapsApiKey\""
+            )
         }
         release {
             isMinifyEnabled = false
@@ -48,6 +62,11 @@ android {
                 "String",
                 "GEMINI_API_KEY",
                 "\"$geminiApiKey\""
+            )
+            buildConfigField(
+                "String",
+                "MAPS_API_KEY",
+                "\"$mapsApiKey\""
             )
 
             proguardFiles(
