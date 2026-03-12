@@ -8,6 +8,8 @@ import android.view.*
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.healthgenieai.R
+import com.example.healthgenieai.ui.chat.ChatFragment
+import com.example.healthgenieai.ui.diet.DietFragment
 import com.example.healthgenieai.ui.maps.HospitalMapFragment
 import com.example.healthgenieai.ui.reminder.ReminderFragment
 import com.example.healthgenieai.ui.report.WeeklyReportFragment
@@ -83,6 +85,26 @@ class HomeFragment : Fragment(), SensorEventListener {
                 .addToBackStack(null)
                 .commit()
         }
+
+        val aiCard = view.findViewById<LinearLayout>(R.id.cardAiChat)
+
+        aiCard.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.frame_container, ChatFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        val dietCard = view.findViewById<LinearLayout>(R.id.cardDietPlan)
+
+        dietCard.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.frame_container, DietFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+
 
 
         return view
