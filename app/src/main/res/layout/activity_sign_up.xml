@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#E8F5F9">
 
     <LinearLayout
         android:orientation="vertical"
@@ -9,58 +10,99 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- Top Health Image -->
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:src="@drawable/img"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Title -->
+<!--        <TextView-->
+<!--            android:text="Create Your Health Profile"-->
+<!--            android:textSize="22sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="#1B5E20"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginBottom="20dp"/>-->
+
+        <!-- Name -->
         <EditText
             android:id="@+id/etName"
             android:hint="Full Name"
+            android:padding="14dp"
+            android:background="@drawable/rounded_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <!-- Age -->
         <EditText
             android:id="@+id/etAge"
             android:hint="Age"
             android:inputType="number"
-            android:layout_marginTop="10dp"
+            android:padding="14dp"
+            android:background="@drawable/rounded_edittext"
+            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <!-- Height -->
         <EditText
             android:id="@+id/etHeight"
             android:hint="Height (cm)"
             android:inputType="numberDecimal"
-            android:layout_marginTop="10dp"
+            android:padding="14dp"
+            android:background="@drawable/rounded_edittext"
+            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <!-- Weight -->
         <EditText
             android:id="@+id/etWeight"
             android:hint="Weight (kg)"
             android:inputType="numberDecimal"
-            android:layout_marginTop="10dp"
+            android:padding="14dp"
+            android:background="@drawable/rounded_edittext"
+            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <!-- Email -->
         <EditText
             android:id="@+id/etEmail"
-            android:hint="Email"
+            android:hint="Email Address"
+            android:drawableStart="@drawable/outline_3p_24"
             android:inputType="textEmailAddress"
-            android:layout_marginTop="10dp"
+            android:padding="14dp"
+            android:background="@drawable/rounded_edittext"
+            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <!-- Password -->
         <EditText
             android:id="@+id/etPassword"
             android:hint="Password"
+            android:drawableStart="@drawable/ic_password"
             android:inputType="textPassword"
-            android:layout_marginTop="10dp"
+            android:padding="14dp"
+            android:background="@drawable/rounded_edittext"
+            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <!-- Signup Button -->
         <Button
             android:id="@+id/btnSignup"
             android:text="Create Account"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:backgroundTint="#2E7D32"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="50dp"/>
 
     </LinearLayout>
 
