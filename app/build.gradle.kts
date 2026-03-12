@@ -63,10 +63,10 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
-    // ✅ Firebase BoM
+    //  Firebase BoM
     implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
 
-    // ✅ Firebase products
+    // Firebase products
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation(libs.firebase.database)
@@ -88,4 +88,14 @@ dependencies {
 
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
+    //gif
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+
+        //google map
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("com.google.android.gms:play-services-location:21.0.1")
+    implementation("com.google.android.libraries.places:places:3.4.0")
+
 }

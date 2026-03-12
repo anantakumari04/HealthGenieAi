@@ -211,7 +211,7 @@
                 android:layout_width="0dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
-                android:background="@drawable/card_light_blue"
+                android:background="#EAEB2222"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:clickable="true"
@@ -222,7 +222,7 @@
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@android:drawable/ic_dialog_info"/>
+                    android:src="@drawable/img_6"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -245,7 +245,7 @@
                 android:layout_width="0dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
-                android:background="@drawable/card_light_green"
+                android:background="#9DEF56"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_margin="6dp"
@@ -254,7 +254,7 @@
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@android:drawable/ic_menu_gallery"/>
+                    android:src="@drawable/img_3"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -277,7 +277,7 @@
                 android:layout_width="0dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
-                android:background="@drawable/card_light_cyan"
+                android:background="#F2D769"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_margin="6dp"
@@ -286,7 +286,7 @@
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@android:drawable/ic_menu_compass"/>
+                    android:src="@drawable/img_4"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -310,7 +310,7 @@
                 android:layout_width="0dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
-                android:background="@drawable/card_light_yellow"
+                android:background="#F2F676FD"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_margin="6dp"
@@ -319,7 +319,7 @@
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@android:drawable/ic_menu_my_calendar"/>
+                    android:src="@drawable/img_5"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -390,6 +390,7 @@
                 android:textColor="#6B7280"/>
 
             <Button
+                android:id="@+id/btnFindHospital"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Find Now"

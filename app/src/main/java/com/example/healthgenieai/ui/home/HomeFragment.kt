@@ -8,6 +8,7 @@ import android.view.*
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.healthgenieai.R
+import com.example.healthgenieai.ui.maps.HospitalMapFragment
 import com.example.healthgenieai.ui.reminder.ReminderFragment
 import com.example.healthgenieai.ui.report.WeeklyReportFragment
 import com.example.healthgenieai.utils.*
@@ -74,6 +75,15 @@ class HomeFragment : Fragment(), SensorEventListener {
                 .addToBackStack(null)
                 .commit()
         }
+        val btnFindHospital = view.findViewById<Button>(R.id.btnFindHospital)
+        btnFindHospital.setOnClickListener {
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.frame_container, HospitalMapFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
 
         return view
     }

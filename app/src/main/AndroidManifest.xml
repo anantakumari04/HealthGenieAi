@@ -23,25 +23,38 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthGenieAI">
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA5slcCi0W_Hi3pDBd-s_jIWjE07P7K3gg"
+            />
+
         <receiver
             android:name=".ui.reminder.ReminderReceiver"
             android:exported="false"/>
 
         <activity
             android:name=".SignUpActivity"
-            android:exported="false" />
+            android:exported="false" >
+
+
+
+        </activity>
 
         <activity
             android:name=".LoginActivity"
+            android:exported="false">
+
+        </activity>
+
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
 
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".SplashActivity"/>
+        </activity>
 
     </application>
 
