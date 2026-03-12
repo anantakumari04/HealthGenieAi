@@ -85,7 +85,7 @@
         <EditText
             android:id="@+id/etPassword"
             android:hint="Password"
-            android:drawableStart="@drawable/ic_password"
+            android:drawableStart="@android:drawable/ic_lock_lock"
             android:inputType="textPassword"
             android:padding="14dp"
             android:background="@drawable/rounded_edittext"
