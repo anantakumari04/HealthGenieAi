@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.example.healthgenieai.R
+import com.example.healthgenieai.BuildConfig
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -32,7 +33,7 @@ class HospitalMapFragment : Fragment(), OnMapReadyCallback {
         val view = inflater.inflate(R.layout.fragment_hospital_map, container, false)
 
         if (!Places.isInitialized()) {
-            Places.initialize(requireContext(), "AIzaSyA5slcCi0W_Hi3pDBd-s_jIWjE07P7K3gg")
+            Places.initialize(requireContext(),  BuildConfig.MAPS_API_KEY)
         }
 
         val mapFragment = childFragmentManager

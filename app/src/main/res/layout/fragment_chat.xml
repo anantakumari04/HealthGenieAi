@@ -1,27 +1,59 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="12dp"
-    android:fitsSystemWindows="true"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvChat"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="Ask me anything about health 👇"
-        android:textSize="16sp"/>
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/etQuestion"
-        android:hint="Ask your question"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:text="AI Symptom Checker 🤖"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/btnSend"
-        android:text="Ask AI"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        <EditText
+            android:id="@+id/etAge"
+            android:hint="Age"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etTemp"
+            android:hint="Body Temperature (°C)"
+            android:inputType="numberDecimal"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etSymptoms"
+            android:hint="Describe symptoms"
+            android:layout_marginTop="10dp"
+            android:minLines="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnCheck"
+            android:text="Check Symptoms"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:text="AI response will appear here..."
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</ScrollView>

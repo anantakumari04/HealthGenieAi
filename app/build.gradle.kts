@@ -10,6 +10,7 @@ if (localPropertiesFile.exists()) {
     localProperties.load(localPropertiesFile.inputStream())
 }
 val geminiApiKey = localProperties.getProperty("GEMINI_API_KEY") ?: ""
+val mapsApiKey = localProperties.getProperty("MAPS_API_KEY") ?: ""
 android {
     namespace = "com.example.healthgenieai"
     compileSdk {
@@ -26,7 +27,15 @@ android {
             "String",
             "GEMINI_API_KEY",
             "\"$geminiApiKey\""
+
         )
+        buildConfigField(
+            "String",
+            "MAPS_API_KEY",
+            "\"$mapsApiKey\""
+        )
+
+        manifestPlaceholders["MAPS_API_KEY"] = mapsApiKey
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -35,8 +44,31 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField(
+                "String",
+                "GEMINI_API_KEY",
+                "\"$geminiApiKey\""
+            )
+            buildConfigField(
+                "String",
+                "MAPS_API_KEY",
+                "\"$mapsApiKey\""
+            )
+        }
         release {
             isMinifyEnabled = false
+            buildConfigField(
+                "String",
+                "GEMINI_API_KEY",
+                "\"$geminiApiKey\""
+            )
+            buildConfigField(
+                "String",
+                "MAPS_API_KEY",
+                "\"$mapsApiKey\""
+            )
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -78,6 +110,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
 
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
+//    implementation(libs.firebase.storage.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -97,5 +130,16 @@ dependencies {
     implementation("com.google.android.gms:play-services-maps:18.2.0")
     implementation("com.google.android.gms:play-services-location:21.0.1")
     implementation("com.google.android.libraries.places:places:3.4.0")
+
+    //retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+
+
+    implementation("com.google.firebase:firebase-storage-ktx:21.0.1")
 
 }
