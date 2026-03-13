@@ -1,56 +1,95 @@
 package com.example.healthgenieai
 
-
-
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.example.healthgenieai.ui.ProfileFragment
-
 import com.example.healthgenieai.ui.chat.ChatFragment
 import com.example.healthgenieai.ui.diet.DietFragment
 import com.example.healthgenieai.ui.fitness.FitnessFragment
 import com.example.healthgenieai.ui.home.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-
-
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var bottomNav: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
+        bottomNav = findViewById(R.id.bottomNav)
 
-
-        loadFragment(HomeFragment())
+        // Load home first time
+        if (savedInstanceState == null) {
+            loadFragment(HomeFragment())
+        }
 
         bottomNav.setOnItemSelectedListener { item ->
+
             when (item.itemId) {
-                R.id.nav_home -> loadFragment(HomeFragment())
-                R.id.nav_chat -> loadFragment(ChatFragment())
-                R.id.nav_fitness -> loadFragment(FitnessFragment())
-                R.id.nav_diet -> loadFragment(DietFragment())
-                R.id.nav_profile -> loadFragment(ProfileFragment())
+
+                R.id.nav_home -> {
+                    loadFragment(HomeFragment())
+                    true
+                }
+
+                R.id.nav_chat -> {
+                    loadFragment(ChatFragment())
+                    true
+                }
+
+                R.id.nav_fitness -> {
+                    loadFragment(FitnessFragment())
+                    true
+                }
+
+                R.id.nav_diet -> {
+                    loadFragment(DietFragment())
+                    true
+                }
+
+                R.id.nav_profile -> {
+                    loadFragment(ProfileFragment())
+                    true
+                }
+
+                else -> false
             }
-            true
         }
+
+        requestPermissions()
+    }
+
+    // Used by HomeFragment to change bottom navigation
+    fun navigateFromHome(menuId: Int) {
+        bottomNav.selectedItemId = menuId
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_container, fragment)
+            .commit()
+    }
+
+    private fun requestPermissions() {
+
         if (ActivityCompat.checkSelfPermission(
                 this,
-                android.Manifest.permission.ACTIVITY_RECOGNITION
+                Manifest.permission.ACTIVITY_RECOGNITION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
+
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(android.Manifest.permission.ACTIVITY_RECOGNITION),
+                arrayOf(Manifest.permission.ACTIVITY_RECOGNITION),
                 1001
             )
         }
+
         if (ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -63,19 +102,5 @@ class MainActivity : AppCompatActivity() {
                 101
             )
         }
-        Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
-
-
     }
-
-
-
-    private fun loadFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.frame_container, fragment)
-            .commit()
-    }
-
-
-
 }

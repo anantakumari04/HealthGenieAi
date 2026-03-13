@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:background="#E8F5F9">
 
     <LinearLayout
@@ -32,6 +33,7 @@
             android:id="@+id/etName"
             android:hint="Full Name"
             android:padding="14dp"
+            android:textColor="@color/black"
             android:background="@drawable/rounded_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -40,6 +42,7 @@
         <EditText
             android:id="@+id/etAge"
             android:hint="Age"
+            android:textColor="@color/black"
             android:inputType="number"
             android:padding="14dp"
             android:background="@drawable/rounded_edittext"
@@ -51,6 +54,7 @@
         <EditText
             android:id="@+id/etHeight"
             android:hint="Height (cm)"
+            android:textColor="@color/black"
             android:inputType="numberDecimal"
             android:padding="14dp"
             android:background="@drawable/rounded_edittext"
@@ -62,6 +66,7 @@
         <EditText
             android:id="@+id/etWeight"
             android:hint="Weight (kg)"
+            android:textColor="@color/black"
             android:inputType="numberDecimal"
             android:padding="14dp"
             android:background="@drawable/rounded_edittext"
@@ -73,6 +78,7 @@
         <EditText
             android:id="@+id/etEmail"
             android:hint="Email Address"
+            android:textColor="@color/black"
             android:drawableStart="@drawable/outline_3p_24"
             android:inputType="textEmailAddress"
             android:padding="14dp"
@@ -85,6 +91,7 @@
         <EditText
             android:id="@+id/etPassword"
             android:hint="Password"
+            android:textColor="@color/black"
             android:drawableStart="@android:drawable/ic_lock_lock"
             android:inputType="textPassword"
             android:padding="14dp"

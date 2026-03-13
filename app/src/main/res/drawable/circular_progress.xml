@@ -1,0 +1,25 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="oval">
+            <size android:width="90dp" android:height="90dp"/>
+            <stroke android:width="8dp" android:color="#4A6FA5"/>
+        </shape>
+    </item>
+
+    <item>
+        <rotate
+            android:fromDegrees="-90"
+            android:toDegrees="-90">
+
+            <shape android:shape="ring"
+                android:thickness="8dp"
+                android:useLevel="true">
+
+                <solid android:color="#FFFFFF"/>
+            </shape>
+
+        </rotate>
+    </item>
+
+</layer-list>
