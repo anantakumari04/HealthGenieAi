@@ -48,11 +48,12 @@
                 android:padding="10dp">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Steps"
                     android:textColor="#FFFFFF"
                     android:textSize="14sp"
                     android:textStyle="bold"/>
-
                 <FrameLayout
                     android:layout_width="90dp"
                     android:layout_height="90dp"
@@ -297,6 +298,7 @@
 
             <!-- WORKOUT CARD -->
             <LinearLayout
+                android:id="@+id/cardWorkout"
                 android:layout_width="0dp"
                 android:layout_height="110dp"
                 android:layout_weight="1"
@@ -304,7 +306,9 @@
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_margin="6dp"
-                android:padding="8dp">
+                android:padding="8dp"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="36dp"

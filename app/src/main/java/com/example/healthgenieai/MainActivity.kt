@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.healthgenieai.ui.ProfileFragment
 import com.example.healthgenieai.ui.chat.ChatFragment
 import com.example.healthgenieai.ui.diet.DietFragment
-import com.example.healthgenieai.ui.fitness.FitnessFragment
+//import com.example.healthgenieai.ui.fitness.FitnessFragment
 import com.example.healthgenieai.ui.home.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -42,10 +42,10 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
 
-                R.id.nav_fitness -> {
-                    loadFragment(FitnessFragment())
-                    true
-                }
+//                R.id.nav_fitness -> {
+//                    loadFragment(FitnessFragment())
+//                    true
+//                }
 
                 R.id.nav_diet -> {
                     loadFragment(DietFragment())
