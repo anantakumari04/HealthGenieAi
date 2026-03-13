@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.healthgenieai.R
 
@@ -41,6 +42,7 @@ class FitnessFragment : Fragment() {
         tvExercise.text = exercises[exerciseIndex]
         timerText.text = "Next: ${exercises[exerciseIndex]}"
 
+        Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
         startBtn.setOnClickListener {
 
             if (!isRunning) {

@@ -47,6 +47,7 @@ class HomeFragment : Fragment(), SensorEventListener {
             waterCount = prefs.getInt("count", 0)
         }
 
+
         updateWaterUI()
 
         btnAddWater.setOnClickListener {
@@ -154,4 +155,5 @@ class HomeFragment : Fragment(), SensorEventListener {
     private fun updateWaterUI() {
         tvWater.text = "$waterCount / $waterGoal glasses"
     }
+
 }
