@@ -1,85 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#E0F0CE"
+    android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F2F6FF">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:orientation="vertical"
-        android:padding="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/profileImage"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@drawable/img"
-            android:background="@drawable/circle_bg"
-            android:scaleType="centerCrop"/>
-
-        <Button
-            android:id="@+id/btnChangePhoto"
-            android:text="Change Photo"
-            android:layout_marginTop="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/profileName"
-            android:text="User"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/profileEmail"
-            android:text="user@email.com"
-            android:textColor="#777"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/etHeight"
-            android:hint="Height (cm)"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rounded_edittext"
-            android:padding="12dp"
+        <!-- PROFILE HEADER CARD -->
+        <LinearLayout
+            android:background="@drawable/card_white"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/etWeight"
-            android:hint="Weight (kg)"
-            android:background="@drawable/rounded_edittext"
-            android:padding="12dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_launcher_background"
+                android:background="@drawable/ic_launcher_background"
+                android:scaleType="centerCrop"/>
 
-        <Button
-            android:id="@+id/btnUpdate"
-            android:text="Update Profile"
-            android:backgroundTint="#2E7D32"
-            android:textColor="#FFF"
-            android:layout_marginTop="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/btnChangePhoto"
+                android:text="Change Photo"
+                android:textAllCaps="false"
+                android:backgroundTint="#3B82F6"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/btnChangePassword"
-            android:text="Change Password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/profileName"
+                android:text="User"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#1F2937"
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/btnLogout"
-            android:text="Logout"
-            android:textColor="#FF0000"
+            <TextView
+                android:id="@+id/profileEmail"
+                android:text="user@email.com"
+                android:textColor="#6B7280"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <!-- HEALTH INFO CARD -->
+        <LinearLayout
+            android:background="@drawable/card_white"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Personal Health Info"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#374151"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/etHeight"
+                android:hint="Height (cm)"
+                android:textColor="@color/black"
+                android:background="@drawable/input_field"
+                android:padding="12dp"
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/etWeight"
+                android:hint="Weight (kg)"
+                android:textColor="@color/black"
+                android:background="@drawable/input_field"
+                android:padding="12dp"
+                android:layout_marginTop="10dp"
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <!-- ACTION BUTTONS CARD -->
+        <LinearLayout
+            android:background="@drawable/card_white"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnUpdate"
+                android:text="Update Profile"
+                android:textAllCaps="false"
+                android:backgroundTint="#EF739C"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"/>
+
+            <Button
+                android:id="@+id/btnChangePassword"
+                android:text="Change Password"
+                android:textAllCaps="false"
+                android:backgroundTint="#F03776"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"/>
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:text="Logout"
+                android:textAllCaps="false"
+                android:backgroundTint="#D30F0F"
+                android:textColor="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
+
 </ScrollView>

@@ -9,7 +9,6 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.healthgenieai.MainActivity
 import com.example.healthgenieai.R
-import com.example.healthgenieai.ui.fitness.FitnessFragment
 import com.example.healthgenieai.ui.maps.HospitalMapFragment
 import com.example.healthgenieai.ui.reminder.ReminderFragment
 import com.example.healthgenieai.ui.report.WeeklyReportFragment
@@ -67,12 +66,10 @@ class HomeFragment : Fragment(), SensorEventListener {
 
         calculateBMI()
 
-
-
         return view
     }
 
-    // ---------------- STEP GOAL + RESET ----------------
+    // ---------------- STEP GOAL ----------------
 
     private fun setupStepGoal(view: View) {
 
@@ -87,27 +84,21 @@ class HomeFragment : Fragment(), SensorEventListener {
 
         stepCard.setOnLongClickListener {
 
-            showStepOptions()
+            val options = arrayOf("Set Goal", "Reset Steps")
+
+            AlertDialog.Builder(requireContext())
+                .setTitle("Steps Options")
+                .setItems(options) { _, which ->
+
+                    when (which) {
+                        0 -> showGoalDialog()
+                        1 -> resetSteps()
+                    }
+                }
+                .show()
 
             true
         }
-    }
-
-    private fun showStepOptions() {
-
-        val options = arrayOf("Set Goal", "Reset Steps")
-
-        AlertDialog.Builder(requireContext())
-            .setTitle("Steps Options")
-            .setItems(options) { _, which ->
-
-                when (which) {
-
-                    0 -> showGoalDialog()
-                    1 -> resetSteps()
-                }
-            }
-            .show()
     }
 
     private fun showGoalDialog() {
@@ -124,9 +115,11 @@ class HomeFragment : Fragment(), SensorEventListener {
 
                 stepGoal = goal
 
-                val prefs = requireContext().getSharedPreferences("step_prefs", Context.MODE_PRIVATE)
-
-                prefs.edit().putInt("goal", goal).apply()
+                requireContext()
+                    .getSharedPreferences("step_prefs", Context.MODE_PRIVATE)
+                    .edit()
+                    .putInt("goal", goal)
+                    .apply()
 
                 tvStepGoal.text = "Goal: $goal"
             }
@@ -155,7 +148,6 @@ class HomeFragment : Fragment(), SensorEventListener {
         val weightKg = prefs.getFloat("weight", 60f)
 
         val heightM = heightCm / 100
-
         val bmi = weightKg / (heightM * heightM)
 
         tvBMI.text = String.format("%.1f", bmi)
@@ -190,6 +182,7 @@ class HomeFragment : Fragment(), SensorEventListener {
                 .apply()
 
         } else {
+
             waterCount = prefs.getInt("count", 0)
         }
 
@@ -207,7 +200,43 @@ class HomeFragment : Fragment(), SensorEventListener {
             }
         }
 
-        tvWater.setOnClickListener { showWaterGoalDialog() }
+        // Tap → preset dialog
+        tvWater.setOnClickListener {
+            showWaterGoalDialog()
+        }
+
+        // Long press → custom goal
+        tvWater.setOnLongClickListener {
+            showWaterGoalInputDialog()
+            true
+        }
+    }
+
+    private fun showWaterGoalInputDialog() {
+
+        val input = EditText(requireContext())
+        input.hint = "Enter water goal (glasses)"
+        input.inputType = android.text.InputType.TYPE_CLASS_NUMBER
+
+        AlertDialog.Builder(requireContext())
+            .setTitle("Custom Water Goal")
+            .setView(input)
+            .setPositiveButton("Save") { _, _ ->
+
+                val goal = input.text.toString().toIntOrNull() ?: return@setPositiveButton
+
+                waterGoal = goal
+
+                requireContext()
+                    .getSharedPreferences("water_prefs", Context.MODE_PRIVATE)
+                    .edit()
+                    .putInt("goal", goal)
+                    .apply()
+
+                updateWaterUI()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
     }
 
     // ---------------- NAVIGATION ----------------
@@ -247,6 +276,7 @@ class HomeFragment : Fragment(), SensorEventListener {
 
             (activity as? MainActivity)?.navigateFromHome(R.id.nav_diet)
         }
+
         view.findViewById<LinearLayout>(R.id.cardWorkout).setOnClickListener {
 
             (activity as? MainActivity)?.navigateFromHome(R.id.nav_fitness)
@@ -269,14 +299,12 @@ class HomeFragment : Fragment(), SensorEventListener {
         calculateBMI()
 
         stepSensor?.also {
-
             sensorManager.registerListener(this, it, SensorManager.SENSOR_DELAY_UI)
         }
     }
 
     override fun onPause() {
         super.onPause()
-
         sensorManager.unregisterListener(this)
     }
 
@@ -292,11 +320,9 @@ class HomeFragment : Fragment(), SensorEventListener {
 
         tvSteps.text = currentSteps.toString()
 
-        // Calories
         val calories = currentSteps * userWeight * 0.0005f
         tvCalories.text = String.format("%.1f kcal", calories)
 
-        // Progress ring
         val progressPercent = (currentSteps * 100) / stepGoal
 
         stepProgress.progress = progressPercent.coerceAtMost(100)
@@ -311,7 +337,12 @@ class HomeFragment : Fragment(), SensorEventListener {
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}
 
-    // ---------------- WATER GOAL ----------------
+    // ---------------- WATER UI ----------------
+
+    private fun updateWaterUI() {
+
+        tvWater.text = "$waterCount / $waterGoal glasses"
+    }
 
     private fun showWaterGoalDialog() {
 
@@ -320,7 +351,6 @@ class HomeFragment : Fragment(), SensorEventListener {
         val rg = dialogView.findViewById<RadioGroup>(R.id.rgWaterGoal)
 
         when (waterGoal) {
-
             6 -> rg.check(R.id.rb6)
             8 -> rg.check(R.id.rb8)
             10 -> rg.check(R.id.rb10)
@@ -334,7 +364,6 @@ class HomeFragment : Fragment(), SensorEventListener {
                 dialogView.findViewById<Button>(R.id.btnSaveGoal).setOnClickListener {
 
                     waterGoal = when (rg.checkedRadioButtonId) {
-
                         R.id.rb6 -> 6
                         R.id.rb10 -> 10
                         else -> 8
@@ -352,10 +381,5 @@ class HomeFragment : Fragment(), SensorEventListener {
                 }
 
             }.show()
-    }
-
-    private fun updateWaterUI() {
-
-        tvWater.text = "$waterCount / $waterGoal glasses"
     }
 }

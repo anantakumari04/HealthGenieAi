@@ -1,5 +1,5 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#F2F6FF"
+    android:background="#F8FAFC"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,27 +9,224 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- HEADER -->
         <TextView
-            android:text="📊 Weekly Health Report"
-            android:textSize="22sp"
+            android:text="Weekly Health Report"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginBottom="12dp"
+            android:textColor="#0F172A"
+            android:layout_marginBottom="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/stepsChart"
-            android:layout_width="match_parent"
-            android:layout_height="240dp"/>
 
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/caloriesChart"
+        <!-- WEEKLY SUMMARY -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="240dp"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_marginBottom="16dp">
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/waterChart"
+            <!-- TOTAL STEPS -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:background="@drawable/card_white"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="6dp"
+                android:elevation="3dp">
+
+                <TextView
+                    android:text="Steps"
+                    android:textSize="13sp"
+                    android:textColor="#6B7280"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tvTotalSteps"
+                    android:text="0"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#4F46E5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+            <!-- TOTAL CALORIES -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:background="@drawable/card_white"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="6dp"
+                android:elevation="3dp">
+
+                <TextView
+                    android:text="Calories"
+                    android:textSize="13sp"
+                    android:textColor="#6B7280"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tvTotalCalories"
+                    android:text="0 kcal"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#F97316"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+            <!-- TOTAL WATER -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:background="@drawable/card_white"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="6dp"
+                android:elevation="3dp">
+
+                <TextView
+                    android:text="Water"
+                    android:textSize="13sp"
+                    android:textColor="#6B7280"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tvTotalWater"
+                    android:text="0 glasses"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#06B6D4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <!-- STEPS CARD -->
+        <LinearLayout
+            android:background="@drawable/card_white"
+            android:padding="14dp"
+            android:orientation="vertical"
+            android:elevation="3dp"
+            android:layout_marginBottom="12dp"
             android:layout_width="match_parent"
-            android:layout_height="240dp"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Daily Steps 👣"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#1F2937"
+                android:layout_marginBottom="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/stepsChart"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"/>
+
+        </LinearLayout>
+
+
+        <!-- CALORIES LINE -->
+        <LinearLayout
+            android:background="@drawable/card_white"
+            android:padding="14dp"
+            android:orientation="vertical"
+            android:elevation="3dp"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Calories Burned 🔥"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#1F2937"
+                android:layout_marginBottom="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/caloriesChart"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"/>
+
+        </LinearLayout>
+
+
+        <!-- WATER -->
+        <LinearLayout
+            android:background="@drawable/card_white"
+            android:padding="14dp"
+            android:orientation="vertical"
+            android:elevation="3dp"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Water Intake 💧"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#1F2937"
+                android:layout_marginBottom="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/waterChart"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"/>
+
+        </LinearLayout>
+
+
+        <!-- PIE CHART -->
+        <LinearLayout
+            android:background="@drawable/card_white"
+            android:padding="14dp"
+            android:orientation="vertical"
+            android:elevation="3dp"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Calories Distribution"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#1F2937"
+                android:layout_marginBottom="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/caloriePieChart"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 </ScrollView>

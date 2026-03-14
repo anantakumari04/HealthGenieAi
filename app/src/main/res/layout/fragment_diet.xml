@@ -1,6 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#F2F6FF"
+    android:background="#D4E4F6"
     android:padding="16dp"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,63 +11,140 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- HEADER -->
         <TextView
             android:text="🥗 AI Diet Planner"
-            android:textSize="22sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="#1F2937"
             android:layout_marginBottom="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <EditText
-            android:id="@+id/etAge"
-            android:hint="Age"
-            android:textColor="@color/black"
-            android:inputType="number"
+        <!-- USER INFO CARD -->
+        <LinearLayout
+            android:background="@drawable/card_white"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/etWeight"
-            android:hint="Weight (kg)"
-            android:textColor="@color/black"
-            android:inputType="numberDecimal"
-            android:layout_marginTop="10dp"
+            <TextView
+                android:text="Your Details"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#374151"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/etAge"
+                android:hint="Age"
+                android:textColor="#000000"
+                android:background="@drawable/input_field"
+                android:inputType="number"
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/etWeight"
+                android:hint="Weight (kg)"
+                android:textColor="#000000"
+                android:background="@drawable/input_field"
+                android:inputType="numberDecimal"
+                android:padding="12dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/etHeight"
+                android:hint="Height (cm)"
+                android:textColor="#000000"
+                android:background="@drawable/input_field"
+                android:inputType="numberDecimal"
+                android:padding="12dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <!-- GOAL CARD -->
+        <LinearLayout
+            android:background="@drawable/card_white"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/etHeight"
-            android:hint="Height (cm)"
-            android:textColor="@color/black"
-            android:inputType="numberDecimal"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Select Your Goal"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#374151"
+                android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-        <Spinner
-            android:id="@+id/spGoal"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <Spinner
+                android:id="@+id/spGoal"
+                android:background="@drawable/input_field"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
+        </LinearLayout>
+
+
+        <!-- GENERATE BUTTON -->
         <Button
             android:id="@+id/btnGenerateDiet"
             android:text="Generate AI Diet Plan"
-            android:backgroundTint="#22C55E"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/tvDietResult"
-            android:text="Your diet plan will appear here..."
+            android:textAllCaps="false"
             android:textSize="16sp"
-            android:layout_marginTop="16dp"
+            android:backgroundTint="#CF71DE"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="50dp"/>
+
+
+        <!-- RESULT CARD -->
+        <LinearLayout
+            android:background="@drawable/card_white"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="AI Diet Recommendation"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#374151"
+                android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvDietResult"
+                android:text="Your personalized diet plan will appear here."
+                android:textSize="15sp"
+                android:textColor="#374151"
+                android:lineSpacingExtra="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
