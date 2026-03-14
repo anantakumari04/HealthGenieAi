@@ -1,32 +1,31 @@
 package com.example.healthgenieai
+
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.text.InputType
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-class LoginActivity : AppCompatActivity() {
 
-    private lateinit var tvForgot: TextView
+class LoginActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
     private lateinit var btnLogin: Button
+    private lateinit var tvForgot: TextView
 
     override fun onStart() {
         super.onStart()
 
-        val currentUser = FirebaseAuth.getInstance().currentUser
+        val user = FirebaseAuth.getInstance().currentUser
 
-        if (currentUser != null) {
+        if (user != null && user.isEmailVerified) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,38 +36,35 @@ class LoginActivity : AppCompatActivity() {
         etEmail = findViewById(R.id.etEmail)
         etPassword = findViewById(R.id.etPassword)
         btnLogin = findViewById(R.id.btnLogin)
+        tvForgot = findViewById(R.id.tvForgot)
 
-        //signup
         val tvSignup = findViewById<TextView>(R.id.tvSignup)
+
         tvSignup.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
-
-        //forgot password
-        tvForgot = findViewById(R.id.tvForgot)
 
         tvForgot.setOnClickListener {
             showResetDialog()
         }
 
-
-        btnLogin.setOnClickListener { loginUser() }
+        btnLogin.setOnClickListener {
+            loginUser()
+        }
     }
 
-
-
-
     private fun loginUser() {
+
         val email = etEmail.text.toString().trim()
         val pass = etPassword.text.toString().trim()
 
-        if(email.isEmpty()){
-            etEmail.error="Enter email"
+        if (email.isEmpty()) {
+            etEmail.error = "Enter email"
             return
         }
 
-        if(pass.length < 6){
-            etPassword.error="Min 6 characters"
+        if (pass.length < 6) {
+            etPassword.error = "Minimum 6 characters required"
             return
         }
 
@@ -76,27 +72,50 @@ class LoginActivity : AppCompatActivity() {
 
         auth.signInWithEmailAndPassword(email, pass)
             .addOnCompleteListener {
+
                 btnLogin.isEnabled = true
 
-                if(it.isSuccessful){
-                    Toast.makeText(this,"Welcome!",Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finish()
+                if (it.isSuccessful) {
+
+                    val user = auth.currentUser
+
+                    if (user != null && user.isEmailVerified) {
+
+                        Toast.makeText(this, "Welcome!", Toast.LENGTH_SHORT).show()
+
+                        startActivity(Intent(this, MainActivity::class.java))
+                        finish()
+
+                    } else {
+
+                        Toast.makeText(
+                            this,
+                            "Please verify your email before login.",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                        auth.signOut()
+                    }
+
                 } else {
-                    Toast.makeText(this,
+
+                    Toast.makeText(
+                        this,
                         it.exception?.message,
-                        Toast.LENGTH_LONG).show()
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
     }
+
     private fun showResetDialog() {
 
-        val builder = android.app.AlertDialog.Builder(this)
+        val builder = AlertDialog.Builder(this)
         builder.setTitle("Reset Password")
 
         val input = EditText(this)
         input.hint = "Enter your email"
-        input.inputType = android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+        input.inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
 
         builder.setView(input)
 
@@ -105,7 +124,7 @@ class LoginActivity : AppCompatActivity() {
             val email = input.text.toString().trim()
 
             if (email.isEmpty()) {
-                Toast.makeText(this,"Enter email",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Enter email", Toast.LENGTH_SHORT).show()
                 return@setPositiveButton
             }
 
@@ -129,6 +148,4 @@ class LoginActivity : AppCompatActivity() {
         builder.setNegativeButton("Cancel", null)
         builder.show()
     }
-
-
 }

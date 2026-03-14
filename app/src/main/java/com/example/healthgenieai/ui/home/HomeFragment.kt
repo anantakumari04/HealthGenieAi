@@ -341,7 +341,7 @@ class HomeFragment : Fragment(), SensorEventListener {
 
     private fun updateWaterUI() {
 
-        tvWater.text = "$waterCount / $waterGoal glasses"
+        tvWater.text = "$waterCount / $waterGoal"
     }
 
     private fun showWaterGoalDialog() {
