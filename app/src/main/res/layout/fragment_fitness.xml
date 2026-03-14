@@ -1,168 +1,205 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#F6F7FB"
+    android:background="#F4F9FF"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginTop="40dp">
 
     <LinearLayout
-        android:padding="20dp"
         android:orientation="vertical"
+        android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- TITLE -->
         <TextView
-            android:text="Today's Exercise"
-            android:textSize="24sp"
+            android:text="Workout Programs 💪"
+            android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="#111827"
+            android:textColor="#0F172A"
+            android:layout_marginBottom="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:text="Stay fit and complete your workout"
-            android:textColor="#6B7280"
-            android:layout_marginBottom="20dp"
+            android:text="Choose a workout to stay healthy"
+            android:textSize="14sp"
+            android:textColor="#64748B"
+            android:layout_marginBottom="18dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <!-- Exercise Card -->
+
+        <!-- FULL BODY CARD -->
         <LinearLayout
-            android:background="#FFFFFF"
-            android:elevation="4dp"
-            android:padding="16dp"
-            android:orientation="vertical"
-            android:layout_marginBottom="16dp"
+            android:id="@+id/cardFullBody"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tvExerciseName"
-                android:text="Push Ups"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:id="@+id/tvExerciseInfo"
-                android:text="3 Sets • 15 Reps"
-                android:textColor="#6B7280"
-                android:layout_marginTop="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:id="@+id/tvCaloriesBurn"
-                android:text="🔥 Estimated Burn: 40 kcal"
-                android:layout_marginTop="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-        <!-- Squats Card -->
-        <LinearLayout
-            android:background="#FFFFFF"
-            android:elevation="4dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/card_fullbody"
             android:padding="16dp"
-            android:orientation="vertical"
-            android:layout_marginBottom="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
 
-            <TextView
-                android:text="Squats"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/img_17"
+                android:layout_marginEnd="12dp"/>
 
-            <TextView
-                android:text="3 Sets • 20 Reps"
-                android:textColor="#6B7280"
-                android:layout_marginTop="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:text="🔥 Estimated Burn: 50 kcal"
-                android:layout_marginTop="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Full Body Workout"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"/>
 
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Burn fat • Build strength"
+                    android:textSize="13sp"
+                    android:textColor="#E2E8F0"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Tip: Keep your core tight while exercising."
+                    android:textSize="11sp"
+                    android:textColor="#E2E8F0"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/img_20"/>
         </LinearLayout>
 
-        <!-- Plank Card -->
+
+        <!-- ABS CARD -->
         <LinearLayout
-            android:background="#FFFFFF"
-            android:elevation="4dp"
-            android:padding="16dp"
-            android:orientation="vertical"
-            android:layout_marginBottom="16dp"
+            android:id="@+id/cardAbs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="120dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/card_abs"
+            android:padding="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
 
-            <TextView
-                android:text="Plank"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/img_18"
+                android:layout_marginEnd="12dp"/>
 
-            <TextView
-                android:text="Hold for 30 seconds"
-                android:textColor="#6B7280"
-                android:layout_marginTop="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:text="🔥 Estimated Burn: 30 kcal"
-                android:layout_marginTop="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Flat Stomach"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"/>
 
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Core and abs workout"
+                    android:textSize="13sp"
+                    android:textColor="#E2E8F0"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Tip: Breathe properly during crunches."
+                    android:textSize="11sp"
+                    android:textColor="#E2E8F0"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/img_20"/>
         </LinearLayout>
 
-        <!-- Timer -->
-        <TextView
-            android:id="@+id/tvTimer"
-            android:text="00 : 60"
-            android:textSize="36sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
 
-        <!-- Start Button -->
-        <Button
-            android:id="@+id/btnStartWorkout"
-            android:text="START WORKOUT"
-            android:textAllCaps="false"
-            android:textSize="18sp"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#22C55E"
-            android:textColor="#FFFFFF"
+        <!-- HIIT CARD -->
+        <LinearLayout
+            android:id="@+id/cardFatBurn"
             android:layout_width="match_parent"
-            android:layout_height="55dp"/>
-        <TextView
-            android:id="@+id/tvCurrentExercise"
-            android:text="Push Ups"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <ProgressBar
-            android:id="@+id/workoutProgress"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:max="3"
-            android:progress="1"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
+            android:layout_height="120dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/card_hit"
+            android:padding="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/img_19"
+                android:layout_marginEnd="12dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Fat Burn HIIT"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="High intensity workout"
+                    android:textSize="13sp"
+                    android:textColor="#E2E8F0"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Tip: Short bursts = more calorie burn."
+                    android:textSize="11sp"
+                    android:textColor="#E2E8F0"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/img_20"/>
+        </LinearLayout>
 
     </LinearLayout>
-
 </ScrollView>
