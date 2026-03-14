@@ -190,22 +190,25 @@ class HomeFragment : Fragment(), SensorEventListener {
 
         btnAddWater.setOnClickListener {
 
-            if (waterCount < waterGoal) {
+            waterCount++
 
-                waterCount++
+            if (waterCount >= waterGoal) {
 
-                prefs.edit().putInt("count", waterCount).apply()
+                Toast.makeText(requireContext(),
+                    "🎉 Water goal completed!", Toast.LENGTH_SHORT).show()
 
-                updateWaterUI()
+                waterCount = 0
             }
+
+            prefs.edit().putInt("count", waterCount).apply()
+
+            updateWaterUI()
         }
 
-        // Tap → preset dialog
         tvWater.setOnClickListener {
             showWaterGoalDialog()
         }
 
-        // Long press → custom goal
         tvWater.setOnLongClickListener {
             showWaterGoalInputDialog()
             true
@@ -226,17 +229,66 @@ class HomeFragment : Fragment(), SensorEventListener {
                 val goal = input.text.toString().toIntOrNull() ?: return@setPositiveButton
 
                 waterGoal = goal
+                waterCount = 0
 
                 requireContext()
                     .getSharedPreferences("water_prefs", Context.MODE_PRIVATE)
                     .edit()
                     .putInt("goal", goal)
+                    .putInt("count", 0)
                     .apply()
 
                 updateWaterUI()
             }
             .setNegativeButton("Cancel", null)
             .show()
+    }
+
+    private fun showWaterGoalDialog() {
+
+        val dialogView = layoutInflater.inflate(R.layout.dialog_water_goal, null)
+
+        val rg = dialogView.findViewById<RadioGroup>(R.id.rgWaterGoal)
+
+        when (waterGoal) {
+            6 -> rg.check(R.id.rb6)
+            8 -> rg.check(R.id.rb8)
+            10 -> rg.check(R.id.rb10)
+        }
+
+        AlertDialog.Builder(requireContext())
+            .setView(dialogView)
+            .create()
+            .apply {
+
+                dialogView.findViewById<Button>(R.id.btnSaveGoal).setOnClickListener {
+
+                    waterGoal = when (rg.checkedRadioButtonId) {
+                        R.id.rb6 -> 6
+                        R.id.rb10 -> 10
+                        else -> 8
+                    }
+
+                    waterCount = 0
+
+                    requireContext()
+                        .getSharedPreferences("water_prefs", Context.MODE_PRIVATE)
+                        .edit()
+                        .putInt("goal", waterGoal)
+                        .putInt("count", 0)
+                        .apply()
+
+                    updateWaterUI()
+
+                    dismiss()
+                }
+
+            }.show()
+    }
+
+    private fun updateWaterUI() {
+
+        tvWater.text = "$waterCount / $waterGoal"
     }
 
     // ---------------- NAVIGATION ----------------
@@ -336,50 +388,4 @@ class HomeFragment : Fragment(), SensorEventListener {
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}
-
-    // ---------------- WATER UI ----------------
-
-    private fun updateWaterUI() {
-
-        tvWater.text = "$waterCount / $waterGoal"
-    }
-
-    private fun showWaterGoalDialog() {
-
-        val dialogView = layoutInflater.inflate(R.layout.dialog_water_goal, null)
-
-        val rg = dialogView.findViewById<RadioGroup>(R.id.rgWaterGoal)
-
-        when (waterGoal) {
-            6 -> rg.check(R.id.rb6)
-            8 -> rg.check(R.id.rb8)
-            10 -> rg.check(R.id.rb10)
-        }
-
-        AlertDialog.Builder(requireContext())
-            .setView(dialogView)
-            .create()
-            .apply {
-
-                dialogView.findViewById<Button>(R.id.btnSaveGoal).setOnClickListener {
-
-                    waterGoal = when (rg.checkedRadioButtonId) {
-                        R.id.rb6 -> 6
-                        R.id.rb10 -> 10
-                        else -> 8
-                    }
-
-                    requireContext()
-                        .getSharedPreferences("water_prefs", Context.MODE_PRIVATE)
-                        .edit()
-                        .putInt("goal", waterGoal)
-                        .apply()
-
-                    updateWaterUI()
-
-                    dismiss()
-                }
-
-            }.show()
-    }
 }
