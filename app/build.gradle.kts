@@ -109,7 +109,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
-    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
 //    implementation(libs.firebase.storage.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -120,7 +120,7 @@ dependencies {
 
 
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
-    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
 
     //gif
     implementation("com.github.bumptech.glide:glide:4.16.0")
