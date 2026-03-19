@@ -89,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:text="Goal: 10,000"
                     android:textColor="#E5E7EB"
-                    android:layout_marginTop="-1dp"/>
+                    android:layout_marginTop="-5dp"/>
 
             </LinearLayout>
 
