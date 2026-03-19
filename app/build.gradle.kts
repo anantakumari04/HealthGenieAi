@@ -12,17 +12,17 @@ if (localPropertiesFile.exists()) {
 val geminiApiKey = localProperties.getProperty("GEMINI_API_KEY") ?: ""
 val mapsApiKey = localProperties.getProperty("MAPS_API_KEY") ?: ""
 android {
-    namespace = "com.example.healthgenieai"
+    namespace = "com.healthgenieai.app"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.healthgenieai"
+        applicationId = "com.healthgenieai.app"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 3
+        versionName = "1.2"
         buildConfigField(
             "String",
             "GEMINI_API_KEY",
@@ -108,6 +108,7 @@ dependencies {
     implementation(libs.googleid)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation ("com.google.firebase:firebase-analytics")
 
 
 //    implementation(libs.firebase.storage.ktx)

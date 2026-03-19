@@ -3,13 +3,27 @@
   <component name="AppInsightsSettings">
     <option name="tabSettings">
       <map>
+        <entry key="Android Vitals">
+          <value>
+            <InsightsFilterSettings>
+              <option name="connection">
+                <ConnectionSetting>
+                  <option name="appId" value="com.healthgenieai.app" />
+                </ConnectionSetting>
+              </option>
+              <option name="signal" value="SIGNAL_UNSPECIFIED" />
+              <option name="timeIntervalDays" value="SEVEN_DAYS" />
+              <option name="visibilityType" value="ALL" />
+            </InsightsFilterSettings>
+          </value>
+        </entry>
         <entry key="Firebase Crashlytics">
           <value>
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.example.healthgenieai" />
-                  <option name="mobileSdkAppId" value="1:222093357831:android:4fee2ed138c05758eccba2" />
+                  <option name="appId" value="com.healthgenieai.app" />
+                  <option name="mobileSdkAppId" value="1:222093357831:android:6142888578f322fdeccba2" />
                   <option name="projectId" value="healthgenieai-f546c" />
                   <option name="projectNumber" value="222093357831" />
                 </ConnectionSetting>
