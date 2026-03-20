@@ -5,6 +5,10 @@
 ![Tech](https://img.shields.io/badge/Tech-Firebase%20%7C%20AI-blue)
 ![Status](https://img.shields.io/badge/status-Active-success)
 
+<p align="center">
+  <img src="banner.png" alt="HealthGenieAI Banner" width="100%" />
+</p>
+
 HealthGenieAI is an AI-powered health and fitness mobile application that helps users track their daily activities, monitor health metrics, and get intelligent recommendations for a healthier lifestyle.
 
 ---
