@@ -106,16 +106,6 @@ Dashboard
 
 ---
 
-## 📸 Screenshots
-
-> Add your screenshots here
-
-
-/screenshots/home.png
-/screenshots/profile.png
-/screenshots/ai.png
-/screenshots/report.png
-
 
 ---
 
