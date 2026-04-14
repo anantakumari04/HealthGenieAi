@@ -63,75 +63,59 @@ HealthGenieAI is an AI-powered health and fitness mobile application that helps 
 
 
 ## 🏗️ System Architecture
-User
-│
-▼
-Android App (Kotlin)
-│
-├── Firebase Authentication
-├── Firestore Database
-├── Firebase Storage
-│
-├── AI Engine (Symptom + Diet)
-│
-├── Google Maps API
-│
-└── Notification System
+```mermaid
+flowchart TD
+    A[👤 User] --> B[📱 Android App (Kotlin)]
 
+    B --> C[🔥 Firebase Authentication]
+    B --> D[(☁️ Firestore Database)]
+    B --> E[📦 Firebase Storage]
 
----
+    B --> F[🤖 AI Engine<br/>Symptom + Diet]
 
+    B --> G[🗺️ Google Maps API]
+
+    B --> H[🔔 Notification System]
+```
 ## 🔄 App Flow
-Start App
-│
-▼
-Splash Screen
-│
-▼
-Login / Signup
-│
-▼
-Email Verification
-│
-▼
-Dashboard
-│
-├── Fitness Tracking
-├── AI Analysis
-├── Diet Plan
-├── Reminders
-├── Reports
-└── Maps
+```mermaid
+flowchart TD
+    A[🚀 Start App] --> B[✨ Splash Screen]
+    B --> C[🔐 Login / Signup]
+    C --> D[📧 Email Verification]
+    D --> E[🏠 Dashboard]
 
+    E --> F[🏃 Fitness Tracking]
+    E --> G[🤖 AI Analysis]
+    E --> H[🥗 Diet Plan]
+    E --> I[⏰ Reminders]
+    E --> J[📊 Reports]
+    E --> K[🗺️ Maps]
 
----
-
-
----
+```
 
 ## 📂 Project Structure
 
 
 com.healthgenieai.app
 │
-├── models
-├── network
-├── ui
-│ ├── home
-│ ├── fitness
-│ ├── diet
-│ ├── chat
-│ ├── maps
-│ └── reminder
+├── models/
+├── network/
+├── ui/
+│   ├── home/
+│   ├── fitness/
+│   ├── diet/
+│   ├── chat/
+│   ├── maps/
+│   └── reminder/
 │
-├── utils
-├── LoginActivity
-├── SignUpActivity
-├── MainActivity
-└── SplashActivity
+├── utils/
+│
+├── LoginActivity.kt
+├── SignUpActivity.kt
+├── MainActivity.kt
+└── SplashActivity.kt
 
-
----
 
 ## ⚙️ Setup Instructions
 
