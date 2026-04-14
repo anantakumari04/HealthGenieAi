@@ -65,17 +65,16 @@ HealthGenieAI is an AI-powered health and fitness mobile application that helps 
 ## 🏗️ System Architecture
 ```mermaid
 flowchart TD
-    A[👤 User] --> B[📱 Android App (Kotlin)]
+    A[User 👤] --> B[Android App]
 
-    B --> C[🔥 Firebase Authentication]
-    B --> D[(☁️ Firestore Database)]
-    B --> E[📦 Firebase Storage]
+    B --> C[Firebase Auth 🔐]
+    B --> D[(Firestore DB ☁️)]
+    B --> E[Storage 📦]
 
-    B --> F[🤖 AI Engine<br/>Symptom + Diet]
+    B --> F[AI Engine\nSymptom + Diet 🤖]
 
-    B --> G[🗺️ Google Maps API]
-
-    B --> H[🔔 Notification System]
+    B --> G[Maps API 🗺️]
+    B --> H[Notifications 🔔]
 ```
 
 ## 🔄 App Flow
