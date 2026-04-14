@@ -95,8 +95,6 @@ flowchart TD
 ```
 
 ## 📂 Project Structure
-
-
 com.healthgenieai.app
 │
 ├── models/
