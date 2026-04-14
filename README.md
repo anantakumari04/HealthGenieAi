@@ -77,6 +77,7 @@ flowchart TD
 
     B --> H[🔔 Notification System]
 ```
+
 ## 🔄 App Flow
 ```mermaid
 flowchart TD
